@@ -285,7 +285,60 @@
       transform: scale(1.3);
     }
 
-    /* ── Footer ── */
+    /* ── Audio bar ── */
+  .audio-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, #ad1457, #e91e8c);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(173,20,87,0.35);
+  }
+
+  .audio-btn {
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.6);
+    color: #fff;
+    font-size: 1.2rem;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+  .audio-btn:hover { background: rgba(255,255,255,0.4); }
+
+  .audio-label { flex: 1; }
+  .audio-title { display: block; font-weight: 700; font-size: 0.95rem; }
+  .audio-sub   { display: block; font-size: 0.75rem; opacity: 0.85; }
+
+  /* Sound wave animation */
+  .audio-wave { display: flex; align-items: center; gap: 3px; height: 28px; }
+  .audio-wave span {
+    display: block;
+    width: 4px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+    animation: wave 0.9s ease-in-out infinite;
+    height: 6px;
+  }
+  .audio-wave span:nth-child(1) { animation-delay: 0s;    }
+  .audio-wave span:nth-child(2) { animation-delay: 0.15s; }
+  .audio-wave span:nth-child(3) { animation-delay: 0.3s;  }
+  .audio-wave span:nth-child(4) { animation-delay: 0.45s; }
+  .audio-wave span:nth-child(5) { animation-delay: 0.6s;  }
+  @keyframes wave {
+    0%, 100% { height: 6px; }
+    50%       { height: 22px; }
+  }
+  .audio-wave.paused span { animation-play-state: paused; height: 6px; }
+
+  /* ── Footer ── */
     footer {
       text-align: center;
       margin-top: 50px;
@@ -407,6 +460,24 @@
     <div class="carousel-dots" id="dots"></div>
   </section>
 
+  <!-- ── Audio player ── -->
+  <div class="audio-bar" id="audioBar">
+    <button class="audio-btn" id="audioBtn" aria-label="Play Happy Birthday">
+      <span id="audioIcon">▶</span>
+    </button>
+    <div class="audio-label">
+      <span class="audio-title">🎵 Happy Birthday, Mona!</span>
+      <span class="audio-sub">Click to play &mdash; or it'll start automatically!</span>
+    </div>
+    <div class="audio-wave" id="audioWave">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <audio id="bdayAudio" preload="auto">
+    <source src="audio/happy-birthday.mp3" type="audio/mpeg" />
+    <source src="audio/happy-birthday.wav" type="audio/wav" />
+  </audio>
+
   <footer>
     Made with love for Mona, by Chad &amp; Marice &nbsp;|&nbsp; Alice, Olive &amp; Beatrice approve this message 🐾
   </footer>
@@ -504,6 +575,58 @@
 
   setInterval(spawn, 300);
   drawConfetti();
+
+  /* ── Audio ── */
+  const audio    = document.getElementById('bdayAudio');
+  const audioBtn = document.getElementById('audioBtn');
+  const audioIcon= document.getElementById('audioIcon');
+  const audioWave= document.getElementById('audioWave');
+  const audioSub = document.querySelector('.audio-sub');
+
+  function setPlaying(playing) {
+    if (playing) {
+      audioIcon.textContent = '⏸';
+      audioWave.classList.remove('paused');
+      audioSub.textContent = 'Now playing — Happy Birthday, Mona!';
+    } else {
+      audioIcon.textContent = '▶';
+      audioWave.classList.add('paused');
+      audioSub.textContent = 'Click to play';
+    }
+  }
+
+  audio.addEventListener('ended', () => setPlaying(false));
+
+  audioBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      setPlaying(true);
+    } else {
+      audio.pause();
+      setPlaying(false);
+    }
+  });
+
+  // Autoplay on first user interaction (browser policy)
+  function tryAutoplay() {
+    audio.play().then(() => {
+      setPlaying(true);
+    }).catch(() => {
+      // Autoplay blocked — user must click
+      setPlaying(false);
+    });
+    document.removeEventListener('click', tryAutoplay);
+    document.removeEventListener('keydown', tryAutoplay);
+  }
+
+  // Try immediate autoplay first
+  audio.play().then(() => {
+    setPlaying(true);
+  }).catch(() => {
+    // Blocked by browser — wait for first interaction
+    document.addEventListener('click', tryAutoplay);
+    document.addEventListener('keydown', tryAutoplay);
+  });
 </script>
 
 </body>
