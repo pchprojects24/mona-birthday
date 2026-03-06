@@ -582,50 +582,56 @@
   const audioIcon= document.getElementById('audioIcon');
   const audioWave= document.getElementById('audioWave');
   const audioSub = document.querySelector('.audio-sub');
+  let   started  = false;
 
   function setPlaying(playing) {
     if (playing) {
       audioIcon.textContent = '⏸';
       audioWave.classList.remove('paused');
-      audioSub.textContent = 'Now playing — Happy Birthday, Mona!';
+      audioSub.textContent = 'Now playing — Happy Birthday, Mona! 🎹';
     } else {
       audioIcon.textContent = '▶';
       audioWave.classList.add('paused');
-      audioSub.textContent = 'Click to play';
+      audioSub.textContent = 'Tap to play';
     }
   }
 
   audio.addEventListener('ended', () => setPlaying(false));
 
+  // Manual play/pause toggle
   audioBtn.addEventListener('click', () => {
     if (audio.paused) {
-      audio.play();
-      setPlaying(true);
+      audio.play().then(() => setPlaying(true)).catch(() => {});
     } else {
       audio.pause();
       setPlaying(false);
     }
   });
 
-  // Autoplay on first user interaction (browser policy)
-  function tryAutoplay() {
-    audio.play().then(() => {
-      setPlaying(true);
-    }).catch(() => {
-      // Autoplay blocked — user must click
-      setPlaying(false);
-    });
-    document.removeEventListener('click', tryAutoplay);
-    document.removeEventListener('keydown', tryAutoplay);
+  function startMusic() {
+    if (started) return;
+    started = true;
+    audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    // Remove all trigger listeners once started
+    window.removeEventListener('scroll',     startMusic);
+    window.removeEventListener('touchmove',  startMusic);
+    window.removeEventListener('touchstart', startMusic);
+    window.removeEventListener('wheel',      startMusic);
   }
 
-  // Try immediate autoplay first
+  // Trigger on ANY scroll/swipe gesture — works on both desktop and mobile
+  window.addEventListener('scroll',     startMusic, { passive: true });
+  window.addEventListener('touchmove',  startMusic, { passive: true });
+  window.addEventListener('touchstart', startMusic, { passive: true });
+  window.addEventListener('wheel',      startMusic, { passive: true });
+
+  // Also try immediate autoplay (works if browser allows it)
   audio.play().then(() => {
+    started = true;
     setPlaying(true);
   }).catch(() => {
-    // Blocked by browser — wait for first interaction
-    document.addEventListener('click', tryAutoplay);
-    document.addEventListener('keydown', tryAutoplay);
+    // Blocked — will fire on first scroll/touch instead
+    setPlaying(false);
   });
 </script>
 
