@@ -292,71 +292,6 @@
       text-transform: uppercase;
     }
 
-    /* ─── ABOUT SECTION ───────────────────────────── */
-    .about-section {
-      background: var(--sand);
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .about-lead {
-      position: sticky;
-      top: 7rem;
-    }
-
-    .about-lead .section-intro {
-      margin-bottom: 1.5rem;
-    }
-
-    .about-sig {
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .bio-list {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      background: #fff;
-    }
-
-    .bio-item {
-      padding: 2rem 2.25rem;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-    }
-
-    .bio-item:last-child {
-      border-bottom: none;
-    }
-
-    .bio-item:hover {
-      background: #fdf8fb;
-    }
-
-    .bio-item-name {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 0.6rem;
-    }
-
-    .bio-item-text {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-    }
-
     /* ─── FOOTER ──────────────────────────────────── */
     footer {
       background: var(--navy);
@@ -442,7 +377,6 @@
     <a href="#" class="nav-logo">Alice, Olive &amp; Beatrice</a>
     <ul class="nav-links">
       <li><a href="#cats">The Cats</a></li>
-      <li><a href="#about">About</a></li>
     </ul>
   </nav>
 
@@ -494,57 +428,6 @@
         </div>
       </article>
 
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about-section" id="about" aria-label="About">
-    <div class="container">
-      <div class="about-layout">
-
-        <div class="about-lead">
-          <p class="section-eyebrow">The Story</p>
-          <h2 class="section-title">Three Cats,<br>One Home</h2>
-          <p class="section-intro">
-            Three cats with three very distinct takes on life &mdash; but united in their
-            appreciation for warm laps, window sills, and the occasional treat.
-          </p>
-          <p class="about-sig">
-            &mdash; Marice &amp; Chad<br>
-            <span style="font-style:normal; font-size:0.82rem; opacity:0.75; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-              Proud staff to three very opinionated cats
-            </span>
-          </p>
-        </div>
-
-        <div class="bio-list">
-          <div class="bio-item">
-            <p class="bio-item-name">Alice</p>
-            <p class="bio-item-text">
-              Alice arrived first, setting the tone for dignified chaos. She tolerates
-              the others with the patience of a queen and expects nothing less than
-              absolute deference from everyone in the household.
-            </p>
-          </div>
-          <div class="bio-item">
-            <p class="bio-item-name">Olive</p>
-            <p class="bio-item-text">
-              Olive is the reason cabinet locks were invented. She is relentlessly
-              curious and completely unrepentant about it. If something can be opened,
-              knocked over, or thoroughly investigated, Olive is on it.
-            </p>
-          </div>
-          <div class="bio-item">
-            <p class="bio-item-name">Beatrice</p>
-            <p class="bio-item-text">
-              Beatrice came last and made the biggest entrance. She remains the
-              loudest presence in any room she graces, and has strong opinions
-              about dinner timing that she will share at volume.
-            </p>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
