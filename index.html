@@ -3,25 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday! 🎂</title>
+  <title>Alice, Olive &amp; Beatrice 🐱</title>
   <style>
     /* ── Reset & base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #fff0f6 0%, #fce4ec 40%, #e8f5e9 100%);
+      background: linear-gradient(135deg, #fff8f0 0%, #fce4ec 40%, #fff3e0 100%);
       min-height: 100vh;
       color: #3a2a2a;
-    }
-
-    /* ── Confetti canvas ── */
-    #confetti-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
     }
 
     /* ── Page wrapper ── */
@@ -74,8 +65,8 @@
       font-style: italic;
     }
 
-    /* ── Balloons row ── */
-    .balloons {
+    /* ── Floating emoji row ── */
+    .paws {
       display: flex;
       justify-content: center;
       gap: 10px;
@@ -175,26 +166,6 @@
       color: #e91e8c;
     }
 
-    /* ── Calgary note ── */
-    .calgary-note {
-      background: rgba(255,255,255,0.80);
-      border-left: 5px solid #1565c0;
-      border-radius: 0 16px 16px 0;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      font-size: 1.05rem;
-      color: #1a237e;
-      line-height: 1.7;
-      box-shadow: 0 4px 16px rgba(21,101,192,0.10);
-    }
-
-    .calgary-note strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-      color: #0d47a1;
-    }
-
     /* ── Carousel section ── */
     .carousel-section {
       text-align: center;
@@ -285,60 +256,7 @@
       transform: scale(1.3);
     }
 
-    /* ── Audio bar ── */
-  .audio-bar {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(90deg, #ad1457, #e91e8c);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 20px;
-    z-index: 100;
-    box-shadow: 0 -4px 20px rgba(173,20,87,0.35);
-  }
-
-  .audio-btn {
-    background: rgba(255,255,255,0.25);
-    border: 2px solid rgba(255,255,255,0.6);
-    color: #fff;
-    font-size: 1.2rem;
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.2s;
-    line-height: 1;
-  }
-  .audio-btn:hover { background: rgba(255,255,255,0.4); }
-
-  .audio-label { flex: 1; }
-  .audio-title { display: block; font-weight: 700; font-size: 0.95rem; }
-  .audio-sub   { display: block; font-size: 0.75rem; opacity: 0.85; }
-
-  /* Sound wave animation */
-  .audio-wave { display: flex; align-items: center; gap: 3px; height: 28px; }
-  .audio-wave span {
-    display: block;
-    width: 4px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 2px;
-    animation: wave 0.9s ease-in-out infinite;
-    height: 6px;
-  }
-  .audio-wave span:nth-child(1) { animation-delay: 0s;    }
-  .audio-wave span:nth-child(2) { animation-delay: 0.15s; }
-  .audio-wave span:nth-child(3) { animation-delay: 0.3s;  }
-  .audio-wave span:nth-child(4) { animation-delay: 0.45s; }
-  .audio-wave span:nth-child(5) { animation-delay: 0.6s;  }
-  @keyframes wave {
-    0%, 100% { height: 6px; }
-    50%       { height: 22px; }
-  }
-  .audio-wave.paused span { animation-play-state: paused; height: 6px; }
-
-  /* ── Footer ── */
+    /* ── Footer ── */
     footer {
       text-align: center;
       margin-top: 50px;
@@ -356,25 +274,23 @@
 </head>
 <body>
 
-<canvas id="confetti-canvas"></canvas>
-
 <div class="page">
 
   <!-- ── Hero ── -->
   <header class="hero">
-    <div class="tag">Today is your special day</div>
-    <h1>Happy Birthday, Mona!</h1>
-    <p class="subtitle">Wishing you all the love, laughter &amp; cake you deserve 🎂</p>
+    <div class="tag">Living with Marice &amp; Chad</div>
+    <h1>Alice, Olive &amp; Beatrice</h1>
+    <p class="subtitle">Three cats. Zero cares. Infinite charm. 🐾</p>
   </header>
 
-  <div class="balloons">🎈🎉🎂🎊🎈</div>
+  <div class="paws">🐱🐾🐈🐾🐱</div>
 
   <!-- ── Cats ── -->
   <section class="cats-section">
-    <h2>Greetings from the Fur Crew!</h2>
+    <h2>The Fur Crew</h2>
     <p class="intro">
-      We tried to get them to sign a card, but they were too busy napping and knocking things off tables.
-      They insisted we pass along their warmest birthday purrs! 🐾
+      They run the household, supervise the couch, and occasionally allow Marice and Chad
+      to share their home. Meet the three cats who are definitely in charge. 🐾
     </p>
     <div class="cat-grid">
       <div class="cat-card">
@@ -392,63 +308,44 @@
     </div>
   </section>
 
-  <!-- ── Message ── -->
+  <!-- ── Message card ── -->
   <div class="message-card">
-    <div class="big-emoji">💝</div>
+    <div class="big-emoji">🐾</div>
     <p>
-      Happy Birthday, Mona — the most wonderful mom!<br />
-      Today is all about you — we hope it's filled with joy, good food,
-      and absolutely zero responsibilities. You deserve every bit of it!
+      Alice keeps a watchful eye on everything and misses nothing.<br />
+      Olive brings the chaos, the cuddles, and the occasional midnight zoomies.<br />
+      Beatrice holds court with quiet dignity and expects to be admired accordingly.
       <br /><br />
-      Alice, Olive, and Beatrice would have baked you a cake,
-      but they can't be trusted near the kitchen counter.
-      They did, however, knock something over in your honour. 🐾
+      Together, they have claimed every soft surface in the house and show no signs
+      of giving any of it back. Marice and Chad wouldn't have it any other way. 😸
     </p>
-    <div class="sig">With all our love — Chad &amp; Marice xo<br/>
+    <div class="sig">— Marice &amp; Chad<br/>
       <span style="font-size:0.9rem; font-weight:400; color:#7b3f6e;">
-        (and Alice, Olive &amp; Beatrice — who are definitely not plotting anything)
+        (proud staff to three very opinionated cats)
       </span>
     </div>
   </div>
 
-  <!-- ── Calgary note ── -->
-  <div class="calgary-note">
-    <strong>✈️ Welcome Home from Calgary!</strong>
-    We hope you had the most amazing trip to Calgary &amp; Banff!
-    Those mountain views looked absolutely breathtaking — we're so glad you got to experience that.
-    Now that you're back home safe and sound, it's time to put your feet up and celebrate your birthday in style. 🏔️🎉
-  </div>
-
   <!-- ── Carousel ── -->
   <section class="carousel-section">
-    <h2>📸 Memories &amp; Moments</h2>
+    <h2>📸 The Cat Gallery</h2>
 
     <div class="carousel-wrapper">
       <div class="carousel-track" id="track">
 
         <div class="carousel-slide">
-          <img src="images/mom-dog.webp" alt="Relaxing at home" />
-          <div class="carousel-caption">Perfectly relaxed — the only way to be! 😄</div>
+          <img src="images/alice.webp" alt="Alice" />
+          <div class="carousel-caption">Alice — watching. Always watching. 👀</div>
         </div>
 
         <div class="carousel-slide">
-          <img src="images/card-game.webp" alt="Card game fun" />
-          <div class="carousel-caption">Game night — looking like a winning hand! 🃏</div>
+          <img src="images/olive.webp" alt="Olive" />
+          <div class="carousel-caption">Olive — living her best, most chaotic life. 🌿</div>
         </div>
 
         <div class="carousel-slide">
-          <img src="images/calgary-transit.webp" alt="Calgary transit adventure" />
-          <div class="carousel-caption">Exploring Calgary — transit style! 🚇</div>
-        </div>
-
-        <div class="carousel-slide">
-          <img src="images/calgary-skyline.webp" alt="Calgary skyline view" />
-          <div class="carousel-caption">That Calgary skyline view is absolutely stunning! 🏙️</div>
-        </div>
-
-        <div class="carousel-slide">
-          <img src="images/banff.jpg" alt="Banff sign" />
-          <div class="carousel-caption">Banff! What a beautiful place to visit! 🏔️❄️</div>
+          <img src="images/beatrice.webp" alt="Beatrice" />
+          <div class="carousel-caption">Beatrice — regal, distinguished, done with your nonsense. 👑</div>
         </div>
 
       </div>
@@ -460,26 +357,8 @@
     <div class="carousel-dots" id="dots"></div>
   </section>
 
-  <!-- ── Audio player ── -->
-  <div class="audio-bar" id="audioBar">
-    <button class="audio-btn" id="audioBtn" aria-label="Play Happy Birthday">
-      <span id="audioIcon">▶</span>
-    </button>
-    <div class="audio-label">
-      <span class="audio-title">🎵 Happy Birthday, Mona!</span>
-      <span class="audio-sub">Click to play &mdash; or it'll start automatically!</span>
-    </div>
-    <div class="audio-wave" id="audioWave">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
-  <audio id="bdayAudio" preload="auto">
-    <source src="audio/happy-birthday.mp3" type="audio/mpeg" />
-    <source src="audio/happy-birthday.wav" type="audio/wav" />
-  </audio>
-
   <footer>
-    Made with love for Mona, by Chad &amp; Marice &nbsp;|&nbsp; Alice, Olive &amp; Beatrice approve this message 🐾
+    Marice &amp; Chad's cat page &nbsp;|&nbsp; Alice, Olive &amp; Beatrice approve this message 🐾
   </footer>
 
 </div>
@@ -523,116 +402,6 @@
   document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
 
   resetTimer();
-
-  /* ── Confetti ── */
-  const canvas = document.getElementById('confetti-canvas');
-  const ctx    = canvas.getContext('2d');
-  const colors = ['#e91e8c','#ff6f00','#ffb300','#1565c0','#43a047','#ab47bc'];
-  let pieces   = [];
-
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  function spawn() {
-    for (let i = 0; i < 6; i++) {
-      pieces.push({
-        x: Math.random() * canvas.width,
-        y: -10,
-        w: 8 + Math.random() * 8,
-        h: 4 + Math.random() * 4,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        angle: Math.random() * Math.PI * 2,
-        spin:  (Math.random() - 0.5) * 0.15,
-        vx:    (Math.random() - 0.5) * 2,
-        vy:    1.5 + Math.random() * 2,
-        alpha: 1
-      });
-    }
-  }
-
-  function drawConfetti() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach(p => {
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.angle);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-      ctx.restore();
-      p.x     += p.vx;
-      p.y     += p.vy;
-      p.angle += p.spin;
-      if (p.y > canvas.height * 0.6) p.alpha -= 0.012;
-    });
-    pieces = pieces.filter(p => p.alpha > 0);
-    requestAnimationFrame(drawConfetti);
-  }
-
-  setInterval(spawn, 300);
-  drawConfetti();
-
-  /* ── Audio ── */
-  const audio    = document.getElementById('bdayAudio');
-  const audioBtn = document.getElementById('audioBtn');
-  const audioIcon= document.getElementById('audioIcon');
-  const audioWave= document.getElementById('audioWave');
-  const audioSub = document.querySelector('.audio-sub');
-  let   started  = false;
-
-  function setPlaying(playing) {
-    if (playing) {
-      audioIcon.textContent = '⏸';
-      audioWave.classList.remove('paused');
-      audioSub.textContent = 'Now playing — Happy Birthday, Mona! 🎹';
-    } else {
-      audioIcon.textContent = '▶';
-      audioWave.classList.add('paused');
-      audioSub.textContent = 'Tap to play';
-    }
-  }
-
-  audio.addEventListener('ended', () => setPlaying(false));
-
-  // Manual play/pause toggle
-  audioBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play().then(() => setPlaying(true)).catch(() => {});
-    } else {
-      audio.pause();
-      setPlaying(false);
-    }
-  });
-
-  function startMusic() {
-    if (started) return;
-    started = true;
-    audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-    // Remove all trigger listeners once started
-    window.removeEventListener('scroll',     startMusic);
-    window.removeEventListener('touchmove',  startMusic);
-    window.removeEventListener('touchstart', startMusic);
-    window.removeEventListener('wheel',      startMusic);
-  }
-
-  // Trigger on ANY scroll/swipe gesture — works on both desktop and mobile
-  window.addEventListener('scroll',     startMusic, { passive: true });
-  window.addEventListener('touchmove',  startMusic, { passive: true });
-  window.addEventListener('touchstart', startMusic, { passive: true });
-  window.addEventListener('wheel',      startMusic, { passive: true });
-
-  // Also try immediate autoplay (works if browser allows it)
-  audio.play().then(() => {
-    started = true;
-    setPlaying(true);
-  }).catch(() => {
-    // Blocked — will fire on first scroll/touch instead
-    setPlaying(false);
-  });
 </script>
 
 </body>
